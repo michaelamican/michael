@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Overpass Mono', Arial, Helvetica, sans-serif;
+    color: #222;
+}
+
+/* #hamicon {
+
+}
+
+.ham {
+    
+} */
+
+.topnav {
+    background: #373737;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 15%;
+}
+
+.topnav_item {
+    color: #ccc;
+    font-size: 2em;
+}
+
+.topnav_item:hover {
+    color: #fff;
+    transition: ease-in 0.2s;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+/* #footer {
+    
+} */
+
+.footer_info {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20%;
+}
+
+.foot_item {
+    font-size: 1.4em;
+}
+
+.foot_item a:hover {
+    transition: ease-in 0.9s;
+    background: rgba(247, 226, 189, 0.5);
+}
+
+#main {
+    display: grid;
+    padding: 3% 10%;
+}
+
+#global {
+    height: 100%;
+    width: 100%;
+    min-height: 1500px;
+    background: #feffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+
