@@ -1,0 +1,58 @@
+<h3>You must login to proceed</h3>
+<!--Login-->
+<fieldset class="login">
+  <h3>Login</h3>
+  <form id="loginUser" (submit) = "loginUser()" >
+    <!--Inputs-->
+    <p>Email</p>
+    <input type="email" name="email" [(ngModel)]="loginMe.email">
+      <span class="errors" *ngIf="loginMe.email.length < 5">   Please enter a valid email</span>
+    
+    <p>Password</p>
+    <input type="password" name="password" [(ngModel)]="loginMe.password">
+    <span class="errors" *ngIf="loginMe.password.length < 8">   Please enter a valid password</span>
+    <br>
+  <!--Submission-->
+    <button class="submit" type="submit" [disabled]="loginMe.email.length < 5||loginMe.password.length < 8">Login</button>
+  </form>
+</fieldset>
+
+<!--Registration-->
+<fieldset class="registration forms">
+
+  <h3>Register User</h3>
+
+  <form id="regForm" (submit) = "registerUser()">
+    <!--Inputs-->
+    <p>First Name</p>
+    <input type="text" name="first_name" [(ngModel)]="makeMe.first_name">
+    <span class="errors" *ngIf="makeMe.first_name.length < 1">   Please include a first name</span>
+
+    <p>Last Name</p>
+    <input type="text" name="last_name" [(ngModel)]="makeMe.last_name">
+    <span class="errors" *ngIf="makeMe.last_name.length < 1">   Please include a last name</span>
+    
+    <p>Email</p>
+    <input type="email" name="email" [(ngModel)]="makeMe.email">
+    <span class="errors" *ngIf="makeMe.email.length < 5">   Please include an email</span>
+
+    <p>Phone</p>
+    <input type="text" name="phone" [(ngModel)]="makeMe.phone">
+    <span class="errors" *ngIf="makeMe.phone.length < 10">Please include a phone number, digits only (no spaces or punctuation)</span>
+    
+    <p>Password</p>
+    <input type="password" name="password" [(ngModel)]="makeMe.password">
+    <span class="errors" *ngIf="makeMe.password.length < 8">   Password must be greater than 8 characters</span>
+    
+    <p>PW Confirmation</p>
+    <input type="password" name="pwconf" [(ngModel)] = "makeMe.pwconf">
+    <span class="errors" *ngIf="makeMe.pwconf.length < 8">   Password confirmation must be greater than 8 characters</span>
+    
+    <!--Errors-->
+    <p class="errors" *ngIf="makeMe.pwconf != makeMe.password">Password and Password Confirmation must match</p>
+    <br>
+    <!--Submission-->
+    <button class="submit" [routerLink]='["/palaver"]'>Clear</button>
+    <button class="submit" type="submit" [disabled]="makeMe.first_name.length < 1 || makeMe.last_name.length < 1 || makeMe.email.length < 5 || makeMe.password.length < 8 || makeMe.pwconf.length < 8 || makeMe.pwconf != makeMe.password || makeMe.phone.length < 10">Register</button>
+  </form>
+</fieldset>

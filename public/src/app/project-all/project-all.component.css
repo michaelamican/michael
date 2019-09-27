@@ -1,0 +1,20 @@
+.projects_ul {
+    list-style: none;
+}
+.projects_head {
+    font-size: 1.3em;
+    text-shadow: 0 0 1px #444;
+}
+.projects_head a {
+    background: white;
+}
+.projects_head a:hover {
+    background: rgba(247, 226, 189, 0.5);
+    transition: ease-in 0.9s;
+}
+.projects_li {
+    margin-top: 1.5em;
+}
+.projects_desc {
+    font-size: 1.1em;
+}

@@ -1,0 +1,16 @@
+#headshot {
+    margin: 1% auto;
+    box-shadow: 0px 0px 6px #999;
+}
+.bio_desc {
+    font-size: 1.1em;
+    margin-top: 1em;
+}
+.highlight {
+    text-shadow: 0px 0px 1px #222;
+    color: #444;
+}
+.highlight:hover {
+    transition: ease-in 0.9s;
+    background: rgba(247, 226, 189, 0.5);
+}

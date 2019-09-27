@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap" rel="stylesheet">
+  <title>{{title}}</title>
+</head>
+<body>
+  <div id="global">
+    <nav id="top_nav">
+      <div id="hamicon">
+        <span class="ham"></span>
+        <span class="ham"></span>
+        <span class="ham"></span>
+      </div>
+      <ul class="topnav">
+        <li class="topnav_item" [routerLink]='["/home"]'>Home</li>
+        <li class="topnav_item" [routerLink]='["/projects"]'>Projects</li>
+        <li class="topnav_item" [routerLink]='["/michael"]'>About Me</li>
+        <li class="topnav_item hide" (click)="logout()">Logout</li>
+      </ul>
+    </nav>
+
+    <div id="main">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div id="footer">
+      <ul class="footer_info">
+        <li class="foot_item">Email: <a href="mailto:amican.design@gmail.com">amican.design@gmail.com</a></li>
+        <li class="foot_item">Phone: <a href="tel:9166406948">(916) 640-6938</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
