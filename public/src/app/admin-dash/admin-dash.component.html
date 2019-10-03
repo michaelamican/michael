@@ -1,18 +1,21 @@
-<h1>Welcome {{user.first_name}}!</h1>
+<div id="content">
+    <h1 id="page_title">Welcome {{user.first_name}}!</h1>
+    <div class="main">
+        <p>Click the links below to navigate.</p>
+        <p><a class="admin_navlink" [routerLink]='["/palaver/projects"]' alt="projects">All Projects</a></p>
+        <p><a class="admin_navlink" [routerLink]='["/palaver/projects/new"]' alt="New project">New Project</a></p>
+        <p><a class="admin_navlink" [routerLink]='["/palaver/user/settings"]' alt="Settings">Settings</a></p>
+        <p><a class="admin_navlink" [routerLink]='["/palaver/logout"]' alt="Logout">Log Out</a></p>
 
-<p>Click the links below to navigate.</p>
-<p><a class="admin_navlink" [routerLink]='["/palaver/projects"]' alt="projects">All Projects</a></p>
-<p><a class="admin_navlink" [routerLink]='["/palaver/projects/new"]' alt="New project">New Project</a></p>
-<p><a class="admin_navlink" [routerLink]='["/palaver/user/settings"]' alt="Settings">Settings</a></p>
-<p><a class="admin_navlink" [routerLink]='["/palaver/logout"]' alt="Logout">Log Out</a></p>
-
-<div class="projects_table" *ngFor="let project of projects">
-    <fieldset class="project_card">
-        <h3><a href="http://{{project.exturl}}">{{project.name}}</a></h3>
-        <p><a href="http://www.github.com/michaelamican/{{project.gitslug}}">Github.com/michaelamican/{{project.gitslug}}</a></p>
-        <fieldset class="project_desc"><p>{{project.desc}}</p></fieldset>
-        <img src="{{project.img}}" alt="{{project.exturl}}">
-        <p class="errors" *ngIf="project.com == false">This project is not yet completed.</p>
-    </fieldset>
+        <div class="projects_table" *ngFor="let project of projects">
+            <fieldset class="project_card">
+                <h3><a href="http://{{project.exturl}}">{{project.name}}</a></h3>
+                <p><a href="http://www.github.com/michaelamican/{{project.gitslug}}">Github.com/michaelamican/{{project.gitslug}}</a></p>
+                <fieldset class="project_desc"><p>{{project.desc}}</p></fieldset>
+                <img src="{{project.img}}" alt="{{project.exturl}}">
+                <p class="errors" *ngIf="project.com == false">This project is not yet completed.</p>
+            </fieldset>
+        </div>
+    </div>
 </div>
 
