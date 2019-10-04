@@ -112,6 +112,7 @@ a {
     }
 
     .main {
+        padding: 2vh 0;
         grid-row: 2/3;
         grid-column: 1;
         height: 72vh;
@@ -180,6 +181,7 @@ a {
     }
 
     .main {
+        padding: 2vh 0;
         grid-row: 2/3;
         grid-column: 1;
         height: 72vh;
@@ -251,6 +253,7 @@ a {
         line-height: 1.1;
     }
     .main {
+        padding: 2vh 0;
         grid-row: 2;
         height: 68vh;
         width: 80vw;
@@ -346,6 +349,7 @@ a {
         grid-column: 1;
     }
     .main {
+        padding: 2vh 0;
         grid-row: 2/3;
         grid-column: 1;
         overflow-y: scroll;
@@ -431,6 +435,7 @@ a {
             grid-column: 1;
         }
         .main {
+            padding: 2vh 0;
             grid-row: 2/3;
             grid-column: 1;
             overflow-y: scroll;
@@ -512,6 +517,7 @@ a {
         line-height: 1.1;
     }
     .main {
+        padding: 2vh 0;
         grid-row: 2;
         height: 68vh;
         width: 80vw;
