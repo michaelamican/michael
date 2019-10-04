@@ -133,6 +133,7 @@ a {
     }
 }
 
+/*Pads*/
 @media screen
     and (min-width: 824px)
     and (max-width: 1025px)
@@ -299,7 +300,6 @@ a {
     and (-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2) 
     and (orientation: landscape) {
     
-
     #global{
         display: grid;
         grid-template-columns: 30% 70%;
@@ -375,6 +375,181 @@ a {
     .foot_item {
         font-size: 5vh !important;
         text-align: right;
+    }
+
+}
+
+/* iPhone 6+/6s+/7+/8+ */
+@media only screen
+    and (device-width: 414px)
+    and (device-height: 736px)
+    and (-webkit-device-pixel-ratio: 3), (min--moz-device-pixel-ratio: 3),(-o-min-device-pixel-ratio: 3/1),(min-device-pixel-ratio: 3)
+    and (orientation: portrait){
+        #global{
+            display: grid;
+            grid-template-columns: 30% 70%;
+            grid-template-rows: 33vh 33vh 34vh;
+            height: 100vh;
+            width: 100vw;
+        }
+        #main {
+            grid-row: 1/4;
+            grid-column: 2/3;
+        }
+        #top_nav {
+            grid-row: 1/2;
+            grid-column: 1/2;
+            height: 33vh;
+        }
+        #footer {
+            grid-row: 2/3;
+            grid-column: 1;
+            height: 77vh;
+            padding: 4%;
+        }
+        h1 {
+            grid-row: 1;
+            grid-column: 2/4;
+        }
+        .topnav {
+            padding: 0 5%;
+        }
+        
+        .topnav_item {
+            font-size: 5vh !important;
+        }
+        .small_font {
+            font-size: 1.85rem !important;
+        }
+        #content {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 20vh 70vh;
+        }
+        #page_title {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        .main {
+            grid-row: 2/3;
+            grid-column: 1;
+            overflow-y: scroll;
+        }
+        .projects_head {
+            font-size: 6vh !important;
+        }
+        .projects_desc {
+            font-size: 4.5vh !important;
+        }
+        #headshot{
+            width: 50%;
+        }
+    
+        .bio_desc {
+            font-size: 5vh !important;
+        }
+    
+        .footer_info {
+            display: flex;
+            margin: 2vh 0;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 67vh;
+        }
+    
+        .foot_item {
+            font-size: 5vh !important;
+            text-align: right;
+        }
+    }
+
+    @media screen 
+    and (orientation: portrait) 
+    and (max-width: 567px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+
+    #global {
+        display: grid;
+        grid-template-rows: 10vh 80vh 10vh;
+        grid-template-columns: 100vw;
+    }
+    #top_nav {
+        grid-row: 1/2;
+        grid-column: 1;
+        max-height: 15vh;
+    }
+
+    .topnav {
+        padding: 0 5%;
+        max-width: 100vw !important;
+    }
+    
+    .topnav_item {
+        font-size: 5vw !important;
+        margin-right: 5vw;
+    }
+    #main {
+        grid-row: 2/3;
+        grid-column: 1;
+        height: 80vh;
+    }
+
+    #content {
+        display: grid;
+        grid-template-rows: 10vh 68vh;
+        grid-template-columns: 80vw;
+        vertical-align: top;
+        padding: 0;
+    }
+
+    #page_title {
+        height: 10vh;
+        grid-row: 1;
+    }
+
+    .small_font {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+    .main {
+        grid-row: 2;
+        height: 68vh;
+        width: 80vw;
+        overflow-y: scroll !important;
+        vertical-align: top;
+    }
+
+    .projects_head {
+        font-size: 6vw !important;
+    }
+    
+    .projects_desc {
+        font-size: 4.5vw !important;
+    }
+
+    #headshot{
+        width: 100%;
+    }
+
+    .bio_desc {
+        font-size: 5vw !important;
+    }
+
+    #footer {
+        grid-row: 3/4;
+        grid-column: 1;
+        max-width: 100vw !important;
+        max-height: 10vh;
+    }
+
+    .footer_info {
+        display: block;
+        margin: 2vh 0;
+        text-align: center;
+    }
+
+    .foot_item {
+        font-size: 5vw !important;
     }
 
 }
