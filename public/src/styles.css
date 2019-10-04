@@ -300,8 +300,9 @@ a {
     and (min-width: 568px)
     and (max-width: 823px)
     and (min-height: 300px)
+    and (orientation: landscape)
     and (-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2) 
-    and (orientation: landscape) {
+    {
     
     #global{
         display: grid;
@@ -387,8 +388,9 @@ a {
 @media only screen
     and (device-width: 414px)
     and (device-height: 736px)
+    and (orientation: portrait)
     and (-webkit-device-pixel-ratio: 3), (min--moz-device-pixel-ratio: 3),(-o-min-device-pixel-ratio: 3/1),(min-device-pixel-ratio: 3)
-    and (orientation: portrait){
+    {
         #global{
             display: grid;
             grid-template-columns: 30% 70%;
