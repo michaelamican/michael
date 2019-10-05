@@ -34,4 +34,8 @@ module.exports = function(app){
     app.get('/api/palaver/projects/delete/:id/', projects.sure);
     app.delete('/api/palaver/projects/delete/:id/', projects.delete);
 
+    app.all('*', (req, res, next) => {
+        res.sendFile(path.resolve('./public/dist/index.html'))
+    });
+
 }
