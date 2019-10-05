@@ -4,7 +4,7 @@ var user = require('../controllers/users.js');
 
 var path = require('path');
 
-module.exports = function(app){
+module.exports = (app) => {
     app.get('/api/', master.splash);
     app.get('/api/home/', master.home);
     app.get('/api/michael/', master.michael);
@@ -33,9 +33,8 @@ module.exports = function(app){
     app.put('/api/palaver/projects/edit/:id/',projects.update);
     app.get('/api/palaver/projects/delete/:id/', projects.sure);
     app.delete('/api/palaver/projects/delete/:id/', projects.delete);
-
-    app.all('*', (req, res, next) => {
-        res.sendFile(path.resolve('./public/dist/index.html'))
+    app.all("*", (req, res, next) => {
+        res.sendFile(path.resolve("./public/dist/index.html"))
     });
 
 }
