@@ -25,6 +25,7 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { SplashComponent } from './splash/splash.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SplashComponent } from './splash/splash.component';
     ProjectEditComponent,
     ProjectNewComponent,
     ProjectViewComponent,
-    SplashComponent
+    SplashComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

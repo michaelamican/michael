@@ -17,16 +17,18 @@ import { ProjectDeleteComponent } from './project-delete/project-delete.componen
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
   //Null session functions ------------------------------------------------------------------------------------------------
   {path: '', pathMatch: 'full', component: SplashComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'michael', component: PersonalComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'contact', pathMatch: 'full', component: ContactComponent},
+  {path: 'michael', pathMatch:'full', component: PersonalComponent},
+  {path: 'home', pathMatch: 'full', component: HomeComponent},
   {path: 'projects', component: ProjectAllComponent, children: [
-    {path: 'projects/:id', component: ProjectViewComponent}
+    {path: 'projects/:id', component: ProjectViewComponent},
+    {path: '', pathMatch: 'full', redirectTo: '/projects'}
   ]},
   //Admin functions -------------------------------------------------------------------------------------------------------
   {path: 'palaver', component: AdminLoginComponent, children:[
@@ -40,7 +42,9 @@ const routes: Routes = [
     {path:'user/settings', component: AdminEditComponent},
     {path:'user/:id', component: AdminViewComponent},
     {path:'user/delete/:id', component: AdminDeleteComponent},
-  ]}
+ 
+  ]},
+  { path: '**', component: PageNotFoundComponent}
 
 ];
 
