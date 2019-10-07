@@ -44,7 +44,7 @@ const routes: Routes = [
     {path:'user/delete/:id', component: AdminDeleteComponent},
  
   ]},
-  { path: '**', component: PageNotFoundComponent}
+  { path: '*', component: PageNotFoundComponent}
 
 ];
 

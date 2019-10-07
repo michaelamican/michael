@@ -9,7 +9,7 @@ app.use(session({
     secret: 'jigglypuff',
     resave: false,
     saveUnitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 100000 }
 }));
 app.use(bodyParser.json());
 
