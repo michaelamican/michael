@@ -35,6 +35,6 @@ module.exports = (app) => {
     app.put('/api/palaver/projects/edit/:id/',projects.update);
     app.get('/api/palaver/projects/delete/:id/', projects.sure);
     app.get('/api/palaver/projects/delete/:id/confirm', projects.delete);
-    app.all("*", (req, res) => res.sendFile('/public/dist/public/index.html'));
+    app.all("*", (req, res) => res.sendFile(__dirname + '/public/dist/public/index.html'));
 
 }
