@@ -55,7 +55,7 @@ module.exports = {
                 }
             })
         }
-        projects.find({}, function(err, projects){
+        project.find({}, function(err, projects){
             if(err){
                 res.json(err);
             } else {
@@ -74,7 +74,7 @@ module.exports = {
                 }
             })
         }
-        projects.find({}, function(err, projects){
+        project.find({}, function(err, projects){
             if(err){
                 res.json(err);
             } else {
@@ -93,7 +93,7 @@ module.exports = {
                 }
             })
         }
-        projects.findOne({_id: req.params.id}, function(err, projects){
+        project.findOne({_id: req.params.id}, function(err, projects){
             if(err){
                 res.json(err);
             } else {

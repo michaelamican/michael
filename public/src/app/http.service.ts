@@ -83,4 +83,17 @@ export class HttpService {
     return this._http.delete('/api/palaver/projects/delete/'+id);
   }
 
+  
+
+//Project functions -------------------------------------------------------------------------------
+  getProjects(){
+    return this._http.get('/api/palaver/projects');
+  }
+  findProject(id){
+    return this._http.get('/api/palaver/projects/' + id);
+  }
+  updateProject(id, projectObj) {
+    return this._http.put('/api/palaver/projects'+id, projectObj);
+  }
+
 }
