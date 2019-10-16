@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-all',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectAllComponent implements OnInit {
 
-  constructor() { }
+  projects=[];
+  currentUser:any;
+
+  constructor(private _httpService:HttpService, private _router:Router) { }
 
   ngOnInit() {
+    // this.getSession();
+    this.getProducts();
   }
 
+  getProducts(){
+    var tempObservable = this._httpService.getProjects();
+    tempObservable.subscribe((data:any)=>{
+      this.projects = data;
+    })
+  }
+
+  getSession(){
+    var tempObservable = this._httpService.getSession();
+    tempObservable.subscribe((data:any)=>{
+      if(data.id == undefined){
+        this._router.navigate(['/palaver/projects/'])
+      }
+    })
+  }
+  
 }

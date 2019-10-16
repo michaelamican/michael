@@ -9,8 +9,11 @@ export class HttpService {
   constructor(private _http:HttpClient) { }
 
 //Admin Functions ---------------------------------------------------------------------------------
-  getUser(){
-    return this._http.get('/api/getuser/');
+  getSession(){
+    return this._http.get('/api/palaver/session/');
+  }
+  getUser(id){
+    return this._http.get('/api/getuser/'+id);
   }
   logoutAdmin(){
     return this._http.get('/api/logout/');
@@ -34,8 +37,8 @@ export class HttpService {
     console.log("http service admin dash reached");
     return this._http.get('/api/palaver/dash/');
   }
-  adminSettings(){
-    return this._http.get('/api/palaver/user/settings/');
+  adminSettings(id){
+    return this._http.get('/api/palaver/user/settings/'+id);
   }
   adminProfile(id){
     return this._http.get('/api/palaver/user/'+id);
@@ -55,8 +58,8 @@ export class HttpService {
   adminRegister(adminObj){
     return this._http.post('/api/palaver/register/', adminObj);
   }
-  adminUpdate(adminObj){
-    return this._http.put('/api/palaver/user/settings/'+adminObj.id, adminObj);
+  adminUpdate(id, adminObj){
+    return this._http.put('/api/palaver/user/settings/'+id, adminObj);
   }
   adminProjectsAll(){
     return this._http.get('/api/palaver/projects/');

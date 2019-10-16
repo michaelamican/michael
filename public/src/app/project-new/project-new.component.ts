@@ -11,7 +11,7 @@ export class ProjectNewComponent implements OnInit {
 
   newProject = { name:'', gittslug:'', exturl:'', desc:'', com:'', img:'', rank:''};
   projects = [];
-  admin = [];
+  admin:any;
 
   constructor(private _httpService: HttpService, private _router: Router){ }
 
@@ -28,9 +28,13 @@ export class ProjectNewComponent implements OnInit {
   }
 
   getAdmin(){
-    var tempObservable = this._httpService.getUser();
+    var tempObservable = this._httpService.getSession();
     tempObservable.subscribe((data: any)=>{
-      this.admin = data;
+      if(data.error){
+        this._router.navigate(['/palaver']);
+      } else {
+        this.admin = data;
+      }
     })
   }
 }

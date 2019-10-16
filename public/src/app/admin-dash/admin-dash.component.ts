@@ -9,22 +9,23 @@ import { Router } from '@angular/router';
 })
 export class AdminDashComponent implements OnInit {
   
-  user = [];
+  user:any;
   projects = [];
 
   constructor(private _httpService: HttpService, private _router: Router) { }
 
   ngOnInit() {
-    console.log("Admin-Dash ts onInit");
     this.getAdmin();
     this.getProjects();
   }
 
   getAdmin(){
-    console.log("Admin-Dash ts getAdmin");
-    var tempObservable = this._httpService.getUser();
+    var tempObservable = this._httpService.getSession();
     tempObservable.subscribe((data: any)=>{
-      this.user = data;
+      var chonkObservable = this._httpService.getUser(data.id);
+      chonkObservable.subscribe((newData:any)=>{
+        this.user = newData;
+      })
     })
   }
 

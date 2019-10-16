@@ -3,8 +3,9 @@
     <h1 id="page_title">Delete {{admin.first_name}} {{admin.last_name}}</h1>
     <div class="main">
         <h3>Are you sure you want to delete {{admin.first_name}}?</h3>
-        <a href="confirm"><button class="inline confirm">Yes</button></a> 
-        <a href="/palaver/projects/delete/{{admin.id}}/"><button class="inline deny">Go Back</button></a>
+        <button class="inline confirm" (click)=delete()>Yes</button>
+        <button class="inline neutral" (click)=edit()>Edit</button>
+        <button class="inline deny" (click)=cancel()>Go Back</button>
     </div>
 
 </div>

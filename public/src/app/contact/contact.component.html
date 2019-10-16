@@ -1,8 +1,32 @@
 <div id="content">
 
-        <h1 id="page_title">contact works!</h1>
-        <div class="main">
-    
-        </div>
-        
+    <h1 id="page_title">Contact</h1>
+    <div class="main">
+        <h3>Thank you for visiting my portfolio!</h3>
+        <p>As a freelancer, I am happy to discuss your upcoming projects in web and app design.</p>
+        <p>Please contact me using the form below.</p>
+        <fieldset class="forms">
+            <form id="messageForm" (submit)=sendEmail()>
+                <label for="inputEmail" class="labels">Email</label>
+                <input class="inputs texts" type="email" id="inputEmail" [(ngModel)]="person.email" placeholder="xyz@abc.com">
+                <span class="errors" *ngIf="person.email.length < 5">You must include an email.</span>
+                
+                <label for="inputReason" class="labels">Reason</label>
+                <input class="inputs texts" type="text" id="inputReason" [(ngModel)]="person.reason" placeholder="Reason for Contact">
+                <span class="errors" *ngIf="person.reason.length < 1">You must include a reason for contact.</span>
+                
+                <label for="inputMessage" class="labels">Message</label>
+                <textarea class="inputs textareas" id="inputMessage" [(ngModel)]="person.message" placeholder="Message"></textarea>
+                <span class="errors" *ngIf="person.message.length < 60">You must include a descriptive message over 60 characters.</span>
+
+                <label for="inputPhone" class="labels">Phone</label>
+                <input class="inputs texts" type="text" id="inputPhone" [(ngModel)]="person.phone" placeholder="(xxx)xxx-xxxx">
+                <span class="errors" *ngIf="person.phone.length < 10">You must include a phone number.</span>
+                
+                <button class="deny" (click)=reset()>Clear</button>
+                <input type="submit" value="submit" class="confirm" [disabled]="person.email.length < 5 || person.reason.length < 1 || person.message.length < 60 || person.phone.length < 10">
+            </form>
+        </fieldset>
     </div>
+    
+</div>

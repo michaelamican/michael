@@ -17,6 +17,10 @@ export class ProjectEditComponent implements OnInit {
   constructor(private _httpService: HttpService, private _router:Router, private _route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.getProject();
+  }
+
+  getProject(){
     this._route.params.subscribe((data)=> {
       var id = data.id;
       var tempObservable = this._httpService.findProject(id);

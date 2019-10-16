@@ -47,5 +47,16 @@
             </li>
         </ul>
     </div>
+    <div class="main hide">
+        <ul class="projects_ul">
+            <li *ngFor = 'let project of projects' class="projects_li">
+                <fieldset class="projects_img">
+                    <img src="{{project.img}}">
+                </fieldset>
+                <h4 class="projects_head"><a href="{{project.exturl}}" target="_blank">{{project.name}}</a></h4>
+                <p class="projects_desc">{{project.desc}}</p>
+            </li>
+        </ul>
+    </div>
 
 </div>

@@ -18,7 +18,7 @@ export class AppComponent {
   }
 
   logout(){
-    var tempObservable = this._httpService.getUser();
+    var tempObservable = this._httpService.getSession();
     tempObservable.subscribe((data: any)=>{
       this._httpService.logoutAdmin().subscribe((data: any)=>{
         console.log(data);

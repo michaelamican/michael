@@ -7,14 +7,15 @@ var bp = require("body-parser");
 
 module.exports = (app) => {
     app.use(bp.json());
-    app.get('/api/', master.splash);
-    app.get('/api/home/', master.home);
-    app.get('/api/michael/', master.michael);
+    // app.get('/api/', master.splash);
+    // app.get('/api/home/', master.home);
+    // app.get('/api/michael/', master.michael);
     app.get('/api/projects/', master.projects);
     app.get('/api/projects/:id/', master.view);
     
 //User functions------------------------------------------------------------------
-    app.get('/api/palaver/', user.splash);
+    // app.get('/api/palaver/', user.splash);
+    app.get('/api/palaver/session', user.session);
     app.get('/api/palaver/dash/', user.dash);
     app.get('/api/palaver/user/settings/', user.settings);
     app.get('/api/palaver/user/:id/', user.view);
@@ -24,7 +25,7 @@ module.exports = (app) => {
     app.get('/api/logout/', user.logout);
     app.put('/api/palaver/user/settings/:id', user.update);
     app.get('/api/palaver/user/delete/:id/confirm', user.delete);
-    app.get('/api/getuser', user.get_user);
+    app.get('/api/getuser/:id', user.get_user);
 
 //Project functions------------------------------------------------------------------
     app.get('/api/palaver/projects/', projects.all)

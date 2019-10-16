@@ -196,6 +196,20 @@ module.exports = {
                 }
             })
         }
+    },
+
+    session: function(req, res){
+        if(req.session.userId == undefined){
+            res.json("You must be logged in to continue.");
+        } else {
+            user.findOne({_id: req.session.userId}, function(err, users){
+                if(err){
+                    res.json(err);
+                } else {
+                    res.json(users);
+                }
+            })
+        }
     }
 
 }
