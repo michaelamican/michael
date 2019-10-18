@@ -16,10 +16,10 @@ export class ProjectAllComponent implements OnInit {
 
   ngOnInit() {
     // this.getSession();
-    this.getProducts();
+    // this.getProjects();
   }
 
-  getProducts(){
+  getProjects(){
     var tempObservable = this._httpService.getProjects();
     tempObservable.subscribe((data:any)=>{
       this.projects = data;
