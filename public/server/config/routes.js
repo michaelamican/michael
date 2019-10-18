@@ -2,11 +2,7 @@ var master = require('../controllers/master.js');
 var projects = require('../controllers/projects.js');
 var user = require('../controllers/users.js');
 
-var path = require('path');
-var bp = require("body-parser");
-
 module.exports = (app) => {
-    app.use(bp.json());
     // app.get('/api/', master.splash);
     // app.get('/api/home/', master.home);
     // app.get('/api/michael/', master.michael);
@@ -36,6 +32,5 @@ module.exports = (app) => {
     app.put('/api/palaver/projects/edit/:id/',projects.update);
     app.get('/api/palaver/projects/delete/:id/', projects.sure);
     app.get('/api/palaver/projects/delete/:id/confirm', projects.delete);
-    app.all("*", (req, res) => res.sendFile(path.resolve('./dist/public/index.html')));
 
 }

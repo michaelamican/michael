@@ -3,6 +3,7 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var path = require('path');
 
 app.use(express.static(__dirname + '/dist/public'));
 app.use(session({
@@ -27,3 +28,7 @@ app.on('listening', function(){
 app.listen(9000, function(){
     console.log('Power level over 9000!!!!!!!');
 })
+
+app.all("*", (req, res, next) => {
+    res.sendFile(path.resolve('./dist/public/index.html'))
+});

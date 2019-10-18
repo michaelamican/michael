@@ -22,36 +22,27 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   //Null session functions ------------------------------------------------------------------------------------------------
-  {path: '', pathMatch: 'full', component: SplashComponent, children: [
-    {path: 'contact', pathMatch: 'full', component: ContactComponent},
-    {path: 'michael', pathMatch:'full', component: PersonalComponent},
-    {path: 'home', pathMatch: 'full', component: HomeComponent},
-    {path: 'projects', component: ProjectAllComponent, children: [
-      {path: ':id', component: ProjectViewComponent},
+  {path: '', pathMatch: 'full', component: SplashComponent},
+  {path: 'contact', pathMatch: 'full', component: ContactComponent},
+  {path: 'michael', pathMatch:'full', component: PersonalComponent},
+  {path: 'home', pathMatch: 'full', component: HomeComponent},
+  {path: 'projects', component: ProjectAllComponent, children: [
+    {path: ':id', component: ProjectViewComponent},
+  ]},
+  //Admin functions -------------------------------------------------------------------------------------------------------
+  {path: 'palaver', component: AdminLoginComponent, children:[
+    {path:'dash', component: AdminDashComponent},
+    {path:'projects', component: AdminProjectsAllComponent, children:[
+      {path:'new', component: ProjectNewComponent},
+      {path:'edit/:id', component: ProjectEditComponent},
+      {path:'delete', component: ProjectDeleteComponent},
+      {path:':id', component: AdminProjectViewComponent}
     ]},
-    //Admin functions -------------------------------------------------------------------------------------------------------
-    {path: 'palaver', component: AdminLoginComponent, children:[
-      {path:'dash', component: AdminDashComponent},
-      {path:'projects', component: AdminProjectsAllComponent, children:[
-        {path:'new', component: ProjectNewComponent},
-        {path:'edit', pathMatch: 'full', redirectTo: '', children: [
-          {path:'edit/:id', component: ProjectEditComponent}
-        ]},
-        {path:'delete', pathMatch:'full', redirectTo:'', children:[
-          {path:'delete/:id', component: ProjectDeleteComponent}
-        ]},
-        {path:':id', component: AdminProjectViewComponent}
-      ]},
-      {path:'user', pathMatch:'full', redirectTo:'/dash', children:[
-        {path:'settings', component: AdminEditComponent},
-        {path:'delete', pathMatch:'full', redirectTo:'/palaver/dash', children: [
-          {path:':id', component: AdminDeleteComponent}
-        ]},
-        {path:':id', component: AdminViewComponent},
-      ]},
-    ]},
-    { path: '*', component: PageNotFoundComponent}
-  ]}
+    {path:'user/settings', component: AdminEditComponent},
+    {path:'user/delete/:id', component: AdminDeleteComponent},
+    {path:'user/:id', component: AdminViewComponent},
+  ]},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

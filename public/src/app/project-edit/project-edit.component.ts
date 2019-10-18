@@ -24,17 +24,15 @@ export class ProjectEditComponent implements OnInit {
     this._route.params.subscribe((data)=> {
       var id = data.id;
       var tempObservable = this._httpService.findProject(id);
-      tempObservable.subscribe((data:any)=>{
-        this.project = data;
+      tempObservable.subscribe((newData:any)=>{
+        this.project = newData;
       })
     })
   }
   
   editProject() {
-    var tempObservable = this._httpService.updateProject(this.project._id, this.project);
-    tempObservable.subscribe((data:any)=>{
-      this._router.navigate(['/']);
-    })
+    this._httpService.updateProject(this.project._id, this.project);
+    this.ngOnInit();
   }
 
   reset(){
