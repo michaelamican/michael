@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProjectNewComponent implements OnInit {
 
-  newProject = { name:'', gittslug:'', exturl:'', desc:'', com:'', img:'', rank:''};
+  newProject = { name:'', gitslug:'', exturl:'', desc:'', com:'', img:'', rank:''};
   projects = [];
   admin:any;
 
@@ -18,6 +18,14 @@ export class ProjectNewComponent implements OnInit {
   ngOnInit() {
     this.getAllProjects();
     this.getAdmin();
+  }
+
+  createProject(){
+    var tempObservable = this._httpService.addProject(this.newProject);
+    tempObservable.subscribe((data:any)=>{
+      this.projects = data;
+      this._router.navigate(['/palaver/projects']);
+    })
   }
 
   getAllProjects(){

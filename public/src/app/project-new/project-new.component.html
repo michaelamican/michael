@@ -6,40 +6,40 @@
                 <form id="makeProject" (submit)="createProject()">
                     <p>Title:
                         <input type="text" name="name" placeholder="Name" [(ngModel)]="newProject.name">
-                        <span class="errors" *ngIf="newProject.name < 1">Please add a name.</span>
+                        <span class="errors" *ngIf="newProject.name.length < 1">Please add a name.</span>
                     </p>
 
                     <p>Git Slug:
                         <input type="text" name="gitslug" placeholder="Github slug" [(ngModel)]="newProject.gitslug">
-                        <span class="errors" *ngIf="newProject.gitslug < 1">Please include the gitslug.</span>
+                        <span class="errors" *ngIf="newProject.gitslug.length < 1">Please include the gitslug.</span>
                     </p>
 
                     <p> External URL:
-                        <input type="text" name="exturl" placeholder="URL" [(ngModel)]="newProduct.exturl">
-                        <span class="errors" *ngIf="newProject.exturl < 7">Please include the external url with www.</span>
+                        <input type="text" name="exturl" placeholder="URL" [(ngModel)]="newProject.exturl">
+                        <span class="errors" *ngIf="newProject.exturl.length < 7">Please include the external url with www.</span>
                     </p>
 
                     <p> Image name:
-                        <input type="text" name="img" placeholder="Image" [(ngModel)]="newProduct.img">
-                        <span class="errors" *ngIf="newProject.img < 5">Please include the image name with extension.</span>
+                        <input type="text" name="img" placeholder="Image" [(ngModel)]="newProject.img">
+                        <span class="errors" *ngIf="newProject.img.length < 5">Please include the image name with extension.</span>
                     </p>
 
                     <p>Rank:
                         <input type="number" name="rank" [(ngModel)]="newProject.rank">
-                        <span class="errors" *ngIf="newProject.rank < 0">Rank must be greater than 1.</span>
+                        <span class="errors" *ngIf="newProject.rank.length < 0">Rank must be greater than 1.</span>
                     </p>
 
                     <p>Completed?
-                        <input type="checkbox" value="true" name="com" [(ngModel)]="newProduct.com">
+                        <input type="checkbox" value="true" name="com" [(ngModel)]="newProject.com">
                     </p>
 
                     <p>Description:</p>
-                    <textarea placeholder="Description" name="desc" [(ngModel)]="newProduct.desc"></textarea>
-                    <span class="errors" *ngIf="newProject.desc < 20">You must include a description of substance.</span>
+                    <textarea placeholder="Description" name="desc" [(ngModel)]="newProject.desc"></textarea>
+                    <span class="errors" *ngIf="newProject.desc.length < 20">You must include a description of substance.</span>
                     <hr>
                     <input
                         type="submit"
-                        [disabled]="newProject.name < 1 || newProject.gitslug < 1 || newProject.exturl < 7 || newProject.img < 5 || newProject.rank < 0 || newProject.desc < 20"
+                        [disabled]="newProject.name.length < 1 || newProject.gitslug.length < 1 || newProject.exturl.length < 7 || newProject.img.length < 5 || newProject.rank.length < 0 || newProject.desc.length < 20"
                         value="Submit"
                     >
                 </form>

@@ -30,9 +30,14 @@ export class ProjectEditComponent implements OnInit {
     })
   }
   
-  editProject() {
-    this._httpService.updateProject(this.project._id, this.project);
-    this.ngOnInit();
+  updateProject() {
+    this._route.params.subscribe((data)=>{
+      var id = data.id;
+      var tempObservable = this._httpService.updateProject(this.project._id, this.project);
+      tempObservable.subscribe((data:any)=>{
+        this._router.navigate(['/palaver/projects/'+id])
+      })
+    })
   }
 
   reset(){

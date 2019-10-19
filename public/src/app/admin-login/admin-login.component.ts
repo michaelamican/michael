@@ -11,11 +11,13 @@ export class AdminLoginComponent implements OnInit {
   message = '';
   loginMe = {email: '', password: ''};
   makeMe = {first_name: '', last_name: '', email: '', password: '', pwconf: '', phone: ''};
+  currentUser:any;
 
   constructor(private _httpService: HttpService, private _router: Router) { }
 
   ngOnInit() {
   }
+  
   registerUser(){
     var tempObservable = this._httpService.adminRegister(this.makeMe);
     tempObservable.subscribe((data: any)=>{
@@ -44,6 +46,21 @@ export class AdminLoginComponent implements OnInit {
       } else {
         console.log("There was an error");
         this.message = "Validation error."
+      }
+    })
+  }
+
+  reset(){
+    this.ngOnInit();
+  }
+
+  getSession(){
+    var tempObservable = this._httpService.getSession();
+    tempObservable.subscribe((data:any)=>{
+      if(data.err == 'Please login to continue'){
+        this._router.navigate(['/']);
+      } else {
+        this.currentUser = data;
       }
     })
   }

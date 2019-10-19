@@ -95,6 +95,9 @@ export class HttpService {
   findProject(id){
     return this._http.get('/api/palaver/projects/' + id);
   }
+  addProject(projectObj){
+    return this._http.post('/palaver/projects/create', projectObj);
+  }
   updateProject(id, projectObj) {
     return this._http.put('/api/palaver/projects'+id, projectObj);
   }

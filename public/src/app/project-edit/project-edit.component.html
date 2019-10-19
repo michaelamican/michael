@@ -3,50 +3,50 @@
     <h1 id="page_title">Edit {{project.name}}</h1>
     <div class="main">
         <fieldset>
-            <form id="makeProject" (submit)="editProject()">
+            <form id="makeProject" (submit)="updateProject()">
                 <p>Title:
-                    <input type="text" name="name" placeholder="Name" [(ngModel)]="updateProject.name">
-                    <span class="errors" *ngIf="updateProject.name < 1">Please add a name.</span>
+                    <input type="text" name="name" placeholder="Name" [(ngModel)]="project.name">
+                    <span class="errors" *ngIf="project.name.length < 1">Please add a name.</span>
                 </p>
 
                 <p>Git Slug:
-                    <input type="text" name="gitslug" placeholder="Github slug" [(ngModel)]="updateProject.gitslug">
-                    <span class="errors" *ngIf="updateProject.gitslug < 1">Please include the gitslug.</span>
+                    <input type="text" name="gitslug" placeholder="Github slug" [(ngModel)]="project.gitslug">
+                    <span class="errors" *ngIf="project.gitslug.length < 1">Please include the gitslug.</span>
                 </p>
 
                 <p> External URL:
-                    <input type="text" name="exturl" placeholder="URL" [(ngModel)]="newProduct.exturl">
-                    <span class="errors" *ngIf="updateProject.exturl < 7">Please include the external url with www.</span>
+                    <input type="text" name="exturl" placeholder="URL" [(ngModel)]="project.exturl">
+                    <span class="errors" *ngIf="project.exturl.length < 7">Please include the external url with www.</span>
                 </p>
 
                 <p> Image name:
-                    <input type="text" name="img" placeholder="Image" [(ngModel)]="newProduct.img">
-                    <span class="errors" *ngIf="updateProject.img < 5">Please include the image name with extension.</span>
+                    <input type="text" name="img" placeholder="Image" [(ngModel)]="project.img">
+                    <span class="errors" *ngIf="project.img.length < 5">Please include the image name with extension.</span>
                 </p>
 
                 <p>Rank:
-                    <input type="number" name="rank" [(ngModel)]="updateProject.rank">
-                    <span class="errors" *ngIf="updateProject.rank < 0">Rank must be greater than 1.</span>
+                    <input type="number" name="rank" [(ngModel)]="project.rank">
+                    <span class="errors" *ngIf="project.rank.length < 0">Rank must be greater than 1.</span>
                 </p>
 
                 <p>Completed?
-                    <input type="checkbox" value="true" name="com" [(ngModel)]="newProduct.com">
+                    <input type="checkbox" value="true" name="com" [(ngModel)]="project.com">
                 </p>
 
                 <p>Description:</p>
-                <textarea placeholder="Description" name="desc" [(ngModel)]="newProduct.desc"></textarea>
-                <span class="errors" *ngIf="updateProject.desc < 20">You must include a description of substance.</span>
+                <textarea placeholder="Description" name="desc" [(ngModel)]="project.desc"></textarea>
+                <span class="errors" *ngIf="project.desc.length < 20">You must include a description of substance.</span>
                 <hr>
                 <input
                     type="submit"
-                    [disabled]="updateProject.name < 1 || updateProject.gitslug < 1 || updateProject.exturl < 7 || updateProject.img < 5 || updateProject.rank < 0 || updateProject.desc < 20"
+                    [disabled]="project.name.length < 1 || project.gitslug.length < 1 || project.exturl.length < 7 || project.img.length < 5 || project.rank.length < 0 || project.desc.length < 20"
                     value="Submit"
                 >
             </form>
             <button (click)="reset()">Clear</button>
         </fieldset>
         <fieldset>
-            <h2>{{updateProject.name}}</h2>
+            <h2>{{project.name}}</h2>
         </fieldset>
     </div>
     

@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-
-  message = {email:'', phone:'', message:'', reason:''};
+  
+  mail = {email:'', phone:'', message:'', reason:''};
 
   constructor(private _httpService: HttpService, private _router: Router) { }
 
@@ -18,8 +18,10 @@ export class ContactComponent implements OnInit {
 
   }
 
-  sendMail(){
+  sendEmail(){
     // this.formService.buildForm();
+    console.log('Mail sent!');
+    //This will be built out later.
   }
 
   reset(){
