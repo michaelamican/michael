@@ -9,38 +9,38 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProjectEditComponent implements OnInit {
 
-  title="Edit Project"
-  project = {_id:'', name:'', gitslug:'', exturl:'', desc:'', com:'', img:'', rank:''};
+  title = 'Edit Project';
+  project = {_id: '', name: '', gitslug: '', exturl: '', desc: '', com: '', img: '', rank: ''};
   projects = [];
   admin = [];
 
-  constructor(private _httpService: HttpService, private _router:Router, private _route:ActivatedRoute) { }
+  constructor(private _httpService: HttpService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getProject();
   }
 
-  getProject(){
-    this._route.params.subscribe((data)=> {
-      var id = data.id;
-      var tempObservable = this._httpService.findProject(id);
-      tempObservable.subscribe((newData:any)=>{
+  getProject() {
+    this._route.params.subscribe((data) => {
+      const id = data.id;
+      const tempObservable = this._httpService.findProject(id);
+      tempObservable.subscribe((newData: any) => {
         this.project = newData;
-      })
-    })
-  }
-  
-  updateProject() {
-    this._route.params.subscribe((data)=>{
-      var id = data.id;
-      var tempObservable = this._httpService.updateProject(this.project._id, this.project);
-      tempObservable.subscribe((data:any)=>{
-        this._router.navigate(['/palaver/projects/'+id])
-      })
-    })
+      });
+    });
   }
 
-  reset(){
+  updateProject() {
+    this._route.params.subscribe((data) => {
+      const id = data.id;
+      const tempObservable = this._httpService.updateProject(this.project._id, this.project);
+      tempObservable.subscribe((data: any) => {
+        this._router.navigate(['/palaver/projects/' + id]);
+      });
+    });
+  }
+
+  reset() {
     this.ngOnInit();
   }
 

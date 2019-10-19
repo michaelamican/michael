@@ -6,100 +6,100 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-//Admin Functions ---------------------------------------------------------------------------------
-  getSession(){
+// Admin Functions ---------------------------------------------------------------------------------
+  getSession() {
     return this._http.get('/api/palaver/session/');
   }
-  getUser(id){
-    return this._http.get('/api/getuser/'+id);
+  getUser(id) {
+    return this._http.get('/api/getuser/' + id);
   }
-  logoutAdmin(){
+  logoutAdmin() {
     return this._http.get('/api/logout/');
   }
-  goHome(){
+  goHome() {
     return this._http.get('/api/home/');
   }
-  meetMichael(){
+  meetMichael() {
     return this._http.get('/api/michael/');
   }
-  seeProjects(){
+  seeProjects() {
     return this._http.get('/api/projects/');
   }
-  seeProject(id){
+  seeProject(id) {
     return this._http.get('/api/projects/' + id);
   }
-  adminHome(){
+  adminHome() {
     return this._http.get('/api/palaver/');
   }
-  adminDash(){
-    console.log("http service admin dash reached");
+  adminDash() {
+    console.log('http service admin dash reached');
     return this._http.get('/api/palaver/dash/');
   }
-  adminSettings(id){
-    return this._http.get('/api/palaver/user/settings/'+id);
+  adminSettings(id) {
+    return this._http.get('/api/palaver/user/settings/' + id);
   }
-  adminProfile(id){
-    return this._http.get('/api/palaver/user/'+id);
+  adminProfile(id) {
+    return this._http.get('/api/palaver/user/' + id);
   }
-  adminLogin(adminObj){
-    console.log("http service admin login reached");
-    console.log("adminObj email is");
+  adminLogin(adminObj) {
+    console.log('http service admin login reached');
+    console.log('adminObj email is');
     console.log(adminObj.email);
     return this._http.post('/api/palaver/login/', adminObj);
   }
-  adminSure(id){
-    return this._http.get('/api/palaver/user/delete/'+id,);
+  adminSure(id) {
+    return this._http.get('/api/palaver/user/delete/' + id, );
   }
-  adminDelete(id){
-    return this._http.delete('/api/palaver/user/delete/'+id);
+  adminDelete(id) {
+    return this._http.delete('/api/palaver/user/delete/' + id);
   }
-  adminRegister(adminObj){
+  adminRegister(adminObj) {
     return this._http.post('/api/palaver/register/', adminObj);
   }
-  adminUpdate(id, adminObj){
-    return this._http.put('/api/palaver/user/settings/'+id, adminObj);
+  adminUpdate(id, adminObj) {
+    return this._http.put('/api/palaver/user/settings/' + id, adminObj);
   }
-  adminProjectsAll(){
+  adminProjectsAll() {
     return this._http.get('/api/palaver/projects/');
   }
-  adminProjectNew(){
+  adminProjectNew() {
     return this._http.get('/api/palaver/projects/new/');
   }
-  adminProjectView(id){
-    return this._http.get('/api/palaver/project/'+ id);
+  adminProjectView(id) {
+    return this._http.get('/api/palaver/project/' + id);
   }
-  adminProjectCreate(projectObj){
+  adminProjectCreate(projectObj) {
     return this._http.post('/api/palaver/projects/create', projectObj);
   }
-  adminProjectEdit(id){
-    return this._http.get('/api/palaver/projects/edit/'+id);
+  adminProjectEdit(id) {
+    return this._http.get('/api/palaver/projects/edit/' + id);
   }
-  adminProjectUpdate(projectObj){
-    return this._http.put('/api/palaver/projects/edit/'+projectObj.id, projectObj);
+  adminProjectUpdate(projectObj) {
+    return this._http.put('/api/palaver/projects/edit/' + projectObj.id, projectObj);
   }
-  adminProjectSure(id){
-    return this._http.get('/api/palaver/projects/delete/'+id);
+  adminProjectSure(id) {
+    return this._http.get('/api/palaver/projects/delete/' + id);
   }
-  adminProjectDelete(id){
-    return this._http.delete('/api/palaver/projects/delete/'+id);
+  adminProjectDelete(id) {
+    return this._http.delete('/api/palaver/projects/delete/' + id);
   }
 
-  
 
-//Project functions -------------------------------------------------------------------------------
-  getProjects(){
+
+// Project functions -------------------------------------------------------------------------------
+  getProjects() {
     return this._http.get('/api/palaver/projects');
   }
-  findProject(id){
+  findProject(id) {
     return this._http.get('/api/palaver/projects/' + id);
   }
-  addProject(projectObj){
+  addProject(projectObj) {
     return this._http.post('/palaver/projects/create', projectObj);
   }
   updateProject(id, projectObj) {
-    return this._http.put('/api/palaver/projects'+id, projectObj);
+    return this._http.put('/api/palaver/projects' + id, projectObj);
   }
 
 }

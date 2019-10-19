@@ -11,19 +11,19 @@ export class AppComponent {
   title = 'Amican Design';
   admin: any;
 
-  constructor(private _httpService: HttpService, private _router: Router){}
+  constructor(private _httpService: HttpService, private _router: Router) {}
 
-  ngOnInit(){
+  ngOnInit() {
     enableProdMode();
   }
 
-  logout(){
-    var tempObservable = this._httpService.getSession();
-    tempObservable.subscribe((data: any)=>{
-      this._httpService.logoutAdmin().subscribe((data: any)=>{
+  logout() {
+    const tempObservable = this._httpService.getSession();
+    tempObservable.subscribe((data: any) => {
+      this._httpService.logoutAdmin().subscribe((data: any) => {
         console.log(data);
-      })
-    })
+      });
+    });
     this._router.navigate(['/']);
   }
 }

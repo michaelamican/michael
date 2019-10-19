@@ -8,44 +8,44 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin-edit.component.css']
 })
 export class AdminEditComponent implements OnInit {
-  title="Edit Admin"
-  admin= {_id:'', first_name:'', last_name:'', email:'', phone:'', password:'', pwconf:''};
-  admins=[];
+  title = 'Edit Admin';
+  admin = {_id: '', first_name: '', last_name: '', email: '', phone: '', password: '', pwconf: ''};
+  admins = [];
   currentUser: any;
 
-  constructor(private _httpService:HttpService, private _router:Router, private _route:ActivatedRoute) { }
+  constructor(private _httpService: HttpService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getSession();
     this.refreshAdmin();
   }
 
-  getSession(){
-    var tempObservable = this._httpService.getSession();
-    tempObservable.subscribe((data:any)=>{
-      if(data.err = "Please login to continue"){
+  getSession() {
+    const tempObservable = this._httpService.getSession();
+    tempObservable.subscribe((data: any) => {
+      if (data.err = 'Please login to continue') {
         this._router.navigate(['/']);
       } else {
         this.currentUser = data;
       }
-    })
+    });
   }
 
   refreshAdmin() {
-    this._route.params.subscribe((data)=>{
-      var id= data.id;
-      var tempObservable = this._httpService.getUser(id);
-      tempObservable.subscribe((data:any)=>{
+    this._route.params.subscribe((data) => {
+      const id = data.id;
+      const tempObservable = this._httpService.getUser(id);
+      tempObservable.subscribe((data: any) => {
         this.admin = data;
-      })
-    })
+      });
+    });
   }
 
   editUser() {
-    var tempObservable = this._httpService.adminUpdate(this.admin._id, this.admin);
-    tempObservable.subscribe((data:any)=>{
+    const tempObservable = this._httpService.adminUpdate(this.admin._id, this.admin);
+    tempObservable.subscribe((data: any) => {
       this.admin = data;
-    })
+    });
     this.ngOnInit();
   }
 

@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dash.component.css']
 })
 export class AdminDashComponent implements OnInit {
-  
-  user:any;
+
+  user: any;
   projects = [];
 
   constructor(private _httpService: HttpService, private _router: Router) { }
@@ -19,22 +19,22 @@ export class AdminDashComponent implements OnInit {
     this.getProjects();
   }
 
-  getAdmin(){
-    var tempObservable = this._httpService.getSession();
-    tempObservable.subscribe((data: any)=>{
-      var chonkObservable = this._httpService.getUser(data.id);
-      chonkObservable.subscribe((newData:any)=>{
+  getAdmin() {
+    const tempObservable = this._httpService.getSession();
+    tempObservable.subscribe((data: any) => {
+      const chonkObservable = this._httpService.getUser(data.id);
+      chonkObservable.subscribe((newData: any) => {
         this.user = newData;
-      })
-    })
+      });
+    });
   }
 
-  getProjects(){
-    console.log("Admin-Dash ts getProjects");
-    var tempObservable = this._httpService.adminProjectsAll();
-    tempObservable.subscribe((data: any)=>{
+  getProjects() {
+    console.log('Admin-Dash ts getProjects');
+    const tempObservable = this._httpService.adminProjectsAll();
+    tempObservable.subscribe((data: any) => {
       this.projects = data;
-    })
+    });
   }
 
 }

@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./project-delete.component.css']
 })
 export class ProjectDeleteComponent implements OnInit {
-  project={name:'', _id:''}
+  project = {name: '', _id: ''};
 
 
   constructor(private _httpService: HttpService, private _router: Router, private _route: ActivatedRoute) { }
@@ -17,29 +17,29 @@ export class ProjectDeleteComponent implements OnInit {
     // this.getSession();
     this.getProject();
   }
-  getSession(){
+  getSession() {
 
   }
 
-  getProject(){
-    this._route.params.subscribe((data:any)=>{
-      var id = data.id;
-      var tempObservable = this._httpService.findProject(id);
-      tempObservable.subscribe((newData:any)=>{
+  getProject() {
+    this._route.params.subscribe((data: any) => {
+      const id = data.id;
+      const tempObservable = this._httpService.findProject(id);
+      tempObservable.subscribe((newData: any) => {
         this.project = newData;
-      })
-    })
+      });
+    });
   }
 
-  delete(){
-
-  }
-
-  edit(){
+  delete() {
 
   }
 
-  cancel(){
+  edit() {
+
+  }
+
+  cancel() {
 
   }
 }

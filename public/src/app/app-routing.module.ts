@@ -21,26 +21,26 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-  //Null session functions ------------------------------------------------------------------------------------------------
+  // Null session functions ------------------------------------------------------------------------------------------------
   {path: '', pathMatch: 'full', component: SplashComponent},
   {path: 'contact', pathMatch: 'full', component: ContactComponent},
-  {path: 'michael', pathMatch:'full', component: PersonalComponent},
+  {path: 'michael', pathMatch: 'full', component: PersonalComponent},
   {path: 'home', pathMatch: 'full', component: HomeComponent},
   {path: 'projects', component: ProjectAllComponent, children: [
     {path: ':id', component: ProjectViewComponent},
   ]},
-  //Admin functions -------------------------------------------------------------------------------------------------------
-  {path: 'palaver', component: AdminLoginComponent, children:[
-    {path:'dash', component: AdminDashComponent},
-    {path:'projects', component: AdminProjectsAllComponent, children:[
-      {path:'new', component: ProjectNewComponent},
-      {path:'edit/:id', component: ProjectEditComponent},
-      {path:'delete', component: ProjectDeleteComponent},
-      {path:':id', component: AdminProjectViewComponent}
+  // Admin functions -------------------------------------------------------------------------------------------------------
+  {path: 'palaver', component: AdminLoginComponent, children: [
+    {path: 'dash', component: AdminDashComponent},
+    {path: 'projects', component: AdminProjectsAllComponent, children: [
+      {path: 'new', component: ProjectNewComponent},
+      {path: 'edit/:id', component: ProjectEditComponent},
+      {path: 'delete', component: ProjectDeleteComponent},
+      {path: ':id', component: AdminProjectViewComponent}
     ]},
-    {path:'user/settings', component: AdminEditComponent},
-    {path:'user/delete/:id', component: AdminDeleteComponent},
-    {path:'user/:id', component: AdminViewComponent},
+    {path: 'user/settings', component: AdminEditComponent},
+    {path: 'user/delete/:id', component: AdminDeleteComponent},
+    {path: 'user/:id', component: AdminViewComponent},
   ]},
   {path: '**', component: PageNotFoundComponent}
 ];
