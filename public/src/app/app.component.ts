@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 import { HttpService } from './http.service';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private _httpService: HttpService, private _router: Router){}
 
   ngOnInit(){
-    console.log("App component ts hit");
+    enableProdMode();
   }
 
   logout(){
